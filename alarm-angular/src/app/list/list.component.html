@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Alarms</h1>
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-primary pull-right" routerLink="/create">Add Alarm</button>
+    </div>
+  </div>
+  <div class="row">
+    <div *ngFor="let alarms of alarmsList" class="col-md-3">
+      <div class="alarms-card">
+        <div class="alarm-name">{{alarms.name}} 
+          <span class="pull-right alarm-status">
+            <span [className]="alarms.status ? 'alarm-active' : 'alarm-inactive'"></span>
+          </span>
+        </div>
+        <div class="alarm-time">{{alarms.time}}</div>
+        <a href="javascript:void(0)" routerLink="/update/{{alarms._id}}" class="btn btn-link btn-sm">Edit</a>
+        <!-- <input type="checkbox" [attr.checked]="alarms.status ? '' : null" disabled> -->
+      </div>
+    </div>
+  </div>
+</div>

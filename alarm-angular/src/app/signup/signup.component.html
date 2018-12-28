@@ -1,0 +1,35 @@
+<div class="container">
+    <h1 class="text-center">Alarm App</h1>
+    <h1 class="text-center"><small>Sign Up </small></h1>
+    <div class="row">
+      <div class="col-md-offset-3 col-md-6">
+        <form (ngSubmit)="signUpUser.form.valid && createUser()" #signUpUser="ngForm" novalidate>
+          <div class="form-group">
+            <input name="email_address" placeholder="Email Address" type="text" class="form-control" required [(ngModel)]="signup.emailAddress" #emailAddress="ngModel">
+            <div *ngIf="emailAddress.invalid && (emailAddress.dirty || emailAddress.touched)" class="alert alert-danger">
+              <div *ngIf="emailAddress.errors.required">Email is required.</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input name="password" placeholder="Password" type="password" class="form-control" required [(ngModel)]="signup.password" #password="ngModel">
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert alert-danger">
+              <div *ngIf="password.errors.required">Password is required.</div>
+            </div>
+          </div>
+          <div class="form-group">
+              <input name="confirm_password" placeholder="Confirm Password" type="password" class="form-control" required [(ngModel)]="signup.confirmPassword" #confirmPassword="ngModel">
+              <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="alert alert-danger">
+                <div *ngIf="confirmPassword.errors.required">Confirm password not matched with password.</div>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
+            <p>&nbsp;</p>
+            Already have an account, login <a href="javascript:void(0)" routerLink="/login">Here</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
